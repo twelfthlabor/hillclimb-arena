@@ -1,0 +1,21 @@
+# Generated run artifacts (canary secrets, session logs) - recreated per run
+runs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+diag-*.log
+
+# OS / tool clutter
+.DS_Store
+.Rhistory
+.playwright-mcp/
+
+# opencode tool-managed directory (node_modules, generated agent files)
+.opencode/
+
+# Adversarial fixture - kept local, not published (see README "Scope & safety")
+AGENTS.md
