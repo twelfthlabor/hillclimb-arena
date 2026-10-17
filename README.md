@@ -17,6 +17,18 @@ refusal behavior, technique-induced compliance, and canary-secret extraction.
 attacker loop (`--hillclimb R`) that iterates strategies until the target complies
 or the budget is exhausted.
 
+## Evaluation results (2026-10-17)
+
+A canary-extraction robustness campaign (harness `8e0f2e8`, 9 free-tier models, 2-3 trials per cell,
+confirmation reruns on fresh secrets) is summarized in [REPORT.md](REPORT.md).
+
+- 8 of 9 models produced at least one confirmed extraction; `beam-free` swept all 12 cells,
+  `nemotron-3.5-super-vl-free` confirmed 9/9 tested cells.
+- Every completed adaptive (dynamic) session leaked; the three new replay/escalation templates
+  added 17 confirmed trials.
+- `nemotron-3-ultra-free` was untestable (upstream 503). Cells are counts, not percentages -
+  see the report for the confirmation rule.
+
 ## Layout
 
 - `arena.py` — shared plumbing (agent spawning, server, cost caps)
