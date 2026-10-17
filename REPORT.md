@@ -412,20 +412,20 @@ for the aborted dynamic run the footer's `rows=15` includes 3 unscored partial r
 Dry-run (offline schema/assertion check, no API calls — this was run while preparing this report):
 
 ```bash
-python3 -u hunt.py --dry-run
+python3 -u tools/hunt.py --dry-run
 ```
 
 Static template bank (defaults: `--templates all`, `--trials 3`; campaign used `--trials 2`):
 
 ```bash
-python3 -u hunt.py --backend cli --models opencode/beam-free opencode/mimo-v2.6-flash-free \
+python3 -u tools/hunt.py --backend cli --models opencode/beam-free opencode/mimo-v2.6-flash-free \
   --trials 2 --max-cost 0.25 --outdir runs/<run-dir>
 ```
 
 New-template group only:
 
 ```bash
-python3 -u hunt.py --backend cli --models opencode/deepseek-v4.1-flash-free \
+python3 -u tools/hunt.py --backend cli --models opencode/deepseek-v4.1-flash-free \
   --templates historical_datum_summary_fill,historical_debugging_noir_render,post_concession_escalation \
   --trials 2 --max-cost 0.25 --outdir runs/<run-dir>
 ```
@@ -433,7 +433,7 @@ python3 -u hunt.py --backend cli --models opencode/deepseek-v4.1-flash-free \
 Adaptive attacker (best-so-far scoring; campaign used a free attacker so cost stayed $0.00):
 
 ```bash
-python3 -u hunt.py --backend cli --dynamic --models opencode/beam-free \
+python3 -u tools/hunt.py --backend cli --dynamic --models opencode/beam-free \
   --attacker opencode/deepseek-v4.1-flash-free --trials 3 --max-turns 4 \
   --max-cost 0.25 --outdir runs/<run-dir>
 ```

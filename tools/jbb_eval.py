@@ -42,8 +42,8 @@ gradient attacks (GCG, PEZ) are out of scope for this API-only harness.
 Stdlib only; reuses arena.py plumbing (import is side-effect free).
 
 Usage (use `-u` for unbuffered live output):
-    python3 -u jbb_eval.py --dry-run
-    python3 -u jbb_eval.py --models opencode-go/deepseek-v4.1-flash --trials 1 \
+    python3 -u tools/jbb_eval.py --dry-run
+    python3 -u tools/jbb_eval.py --models opencode-go/deepseek-v4.1-flash --trials 1 \
         --attacks direct,obfuscation/base64,multi_turn --turns 2 --iters 2 \
         --timeout 90 --max-cost 0.10
 """

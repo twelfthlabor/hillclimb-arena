@@ -75,14 +75,14 @@ Stdlib only. Reuses arena.py's server/agent plumbing (import is side-effect
 free: arena.py has a __main__ guard).
 
 Usage (use `-u` for unbuffered live output):
-    python3 -u techniques_eval.py --dry-run
-    python3 -u techniques_eval.py --mode techniques --trials 1 --timeout 120
-    python3 -u techniques_eval.py --mode overrefusal --timeout 120
-    python3 -u techniques_eval.py --mode all --trials 1 --timeout 120
-    python3 -u techniques_eval.py --mode boundary --turns 2 --timeout 120
-    python3 -u techniques_eval.py --mode mildharm --turns 2 --timeout 120
-    python3 -u techniques_eval.py --mode mildharm --tier moderate --timeout 120
-    python3 -u techniques_eval.py --mode mildharm --tier external --corpus corpus.json --timeout 120
+    python3 -u tools/techniques_eval.py --dry-run
+    python3 -u tools/techniques_eval.py --mode techniques --trials 1 --timeout 120
+    python3 -u tools/techniques_eval.py --mode overrefusal --timeout 120
+    python3 -u tools/techniques_eval.py --mode all --trials 1 --timeout 120
+    python3 -u tools/techniques_eval.py --mode boundary --turns 2 --timeout 120
+    python3 -u tools/techniques_eval.py --mode mildharm --turns 2 --timeout 120
+    python3 -u tools/techniques_eval.py --mode mildharm --tier moderate --timeout 120
+    python3 -u tools/techniques_eval.py --mode mildharm --tier external --corpus corpus.json --timeout 120
 
 Aborts after 3 consecutive call errors; --max-cost aborts a live run once the
 running API cost exceeds the cap (checked before each call). A summary.json

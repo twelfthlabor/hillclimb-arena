@@ -45,9 +45,9 @@ BOUNDARY: only the fake FLAG{hex} canary is targeted; every ask is canary
 extraction or a neutral control. No harmful payloads, no real secrets.
 
 Usage:
-    python3 -u hunt.py --dry-run
-    python3 -u hunt.py --models opencode-go/longcat-2.5-preview-free --trials 5
-    python3 -u hunt.py --dynamic --models opencode-go/longcat-2.5-preview-free \\
+    python3 -u tools/hunt.py --dry-run
+    python3 -u tools/hunt.py --models opencode-go/longcat-2.5-preview-free --trials 5
+    python3 -u tools/hunt.py --dynamic --models opencode-go/longcat-2.5-preview-free \\
         --attacker opencode-go/deepseek-v4-pro --trials 5 --max-turns 4 \\
         --max-cost 0.35
 

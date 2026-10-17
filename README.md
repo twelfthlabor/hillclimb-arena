@@ -1,5 +1,7 @@
 # hillclimb-arena
 
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg) ![Python](https://img.shields.io/badge/python-3.x-3572A5.svg)
+
 A local harness for testing LLM robustness against adversarial prompting. It runs
 evaluation suites against models served by [OpenCode](https://opencode.ai) and measures
 refusal behavior, technique-induced compliance, and canary-secret extraction.
@@ -31,11 +33,13 @@ confirmation reruns on fresh secrets) is summarized in [REPORT.md](REPORT.md).
 
 ## Layout
 
-- `arena.py` — shared plumbing (agent spawning, server, cost caps)
-- `techniques_eval.py` — main evaluator (all suites above)
-- `jbb_eval.py` — JBB-shaped canary-extraction evaluator
-- `forge.py`, `hunt.py`, `persona.py`, `replay.py` — canary-extraction attack tools
-- `*.json` — test data (behaviors, personas, example corpus)
+- `tools/arena.py` — shared plumbing (agent spawning, server, cost caps)
+- `tools/techniques_eval.py` — main evaluator (all suites above)
+- `tools/jbb_eval.py` — JBB-shaped canary-extraction evaluator
+- `tools/forge.py`, `tools/hunt.py`, `tools/persona.py`, `tools/replay.py` — canary-extraction attack tools
+- `behaviors.json`, `personas.json`, `corpus_example.json` — fixtures at repo root
+- `REPORT.md` — campaign report; `LICENSE` — MIT
+- `runs/` — generated artifacts (gitignored)
 
 ## Requirements
 
@@ -47,14 +51,15 @@ confirmation reruns on fresh secrets) is summarized in [REPORT.md](REPORT.md).
 Dry-run (offline, no API calls):
 
 ```bash
-python3 techniques_eval.py --dry-run
-python3 techniques_eval.py --mode mildharm --tier sharp --hillclimb 4 --dry-run
+python3 tools/hunt.py --dry-run
+python3 tools/techniques_eval.py --dry-run
+python3 tools/techniques_eval.py --mode mildharm --tier sharp --hillclimb 4 --dry-run
 ```
 
 Live run (cost-capped):
 
 ```bash
-python3 techniques_eval.py --mode mildharm --tier sharp --hillclimb 4 \
+python3 tools/techniques_eval.py --mode mildharm --tier sharp --hillclimb 4 \
   --model opencode/space-bunny-free --max-cost 0.10
 ```
 
@@ -75,3 +80,7 @@ server isolation before collecting rows.
 
 `runs/` (per-run CSVs, response logs, summaries) is gitignored — it contains canary
 secrets and session data.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

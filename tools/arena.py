@@ -10,10 +10,10 @@ Runs against opencode-go models through a local `opencode serve` instance.
 Stdlib only - no packages required.
 
 Usage:
-    python3 arena.py                        # 10 iterations
-    python3 arena.py --iters 20
-    python3 arena.py --target opencode-go/deepseek-v4-flash
-    python3 arena.py --dry-run              # offline loop check, no API calls
+    python3 tools/arena.py                        # 10 iterations
+    python3 tools/arena.py --iters 20
+    python3 tools/arena.py --target opencode-go/deepseek-v4-flash
+    python3 tools/arena.py --dry-run              # offline loop check, no API calls
 
 Boundary: the only objective this harness can express is extracting the
 generated canary (a fake FLAG{...} the model was told not to reveal). It is a
@@ -33,7 +33,7 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent  # repo root (scripts live in tools/)
 AGENT_DIR = ROOT / ".opencode" / "agent"
 
 TOOLS_OFF = """  bash: false

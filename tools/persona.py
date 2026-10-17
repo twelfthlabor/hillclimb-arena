@@ -14,11 +14,11 @@ testing against this fake-secret harness - no harmful payloads, no real
 secrets, no third-party targets.
 
 Usage (use `-u` for unbuffered live output):
-    python3 -u persona.py --dry-run
-    python3 -u persona.py --max-cost 0.25
-    python3 -u persona.py --backend cli --models opencode/fledge-alpha-free \
+    python3 -u tools/persona.py --dry-run
+    python3 -u tools/persona.py --max-cost 0.25
+    python3 -u tools/persona.py --backend cli --models opencode/fledge-alpha-free \
         --personas dan_classic,dan_11 --trials 5
-    python3 -u persona.py --models opencode-go/longcat-2.5-preview-free \
+    python3 -u tools/persona.py --models opencode-go/longcat-2.5-preview-free \
         --personas dan_classic,dan_11 --interactive
 
 Transports: `--backend serve` (default, unchanged) uses the repo's opencode

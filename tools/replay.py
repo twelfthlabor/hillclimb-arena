@@ -20,9 +20,9 @@ order); if none leaked, the highest-scoring non-partial candidate; a clear
 error otherwise.
 
 Usage (use `-u` for unbuffered live output; stdin may be a pipe):
-    python3 -u replay.py --dry-run
-    python3 -u replay.py --artifact runs/forge-20261005-184629-366503 --timeout 90
-    printf 'decode log line 1\\n/exit\\n' | python3 -u replay.py --artifact <dir>
+    python3 -u tools/replay.py --dry-run
+    python3 -u tools/replay.py --artifact runs/forge-20261005-184629-366503 --timeout 90
+    printf 'decode log line 1\\n/exit\\n' | python3 -u tools/replay.py --artifact <dir>
 
 Stdlib only; reuses arena.py server plumbing and forge.py leak/agent helpers
 (import-safe; neither file is modified).

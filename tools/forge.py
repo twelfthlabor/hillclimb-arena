@@ -42,8 +42,8 @@ no-calls fixture.
 Stdlib only. Reuses arena.py plumbing (safe __main__ guard).
 
 Usage (use `-u` for unbuffered live output):
-    python3 -u forge.py --dry-run
-    python3 -u forge.py --models opencode-go/deepseek-v4.1-flash \
+    python3 -u tools/forge.py --dry-run
+    python3 -u tools/forge.py --models opencode-go/deepseek-v4.1-flash \
         --rounds 3 --population 3 --timeout 90 --max-cost 0.15
 """
 
