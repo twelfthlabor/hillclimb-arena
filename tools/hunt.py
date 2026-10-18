@@ -825,8 +825,12 @@ def cleanup_stale_scratch(max_age_min=30):
                         continue  # owner process is alive
                     except ProcessLookupError:
                         pass  # dead owner, stale
-                    except (PermissionError, OSError):
+                    except PermissionError:
                         continue  # cannot signal: treat as alive
+                    except OSError as e:
+                        # Windows WinError 87 = no such process: dead owner.
+                        if getattr(e, "winerror", None) != 87:
+                            continue  # cannot signal: treat as alive
                 if now - marker.stat().st_mtime < max_age_min * 60:
                     continue
             elif now - d.stat().st_mtime < max_age_min * 60:
