@@ -19,3 +19,10 @@ diag-*.log
 
 # Adversarial fixture - kept local, not published (see README "Scope & safety")
 AGENTS.md
+
+# Credentials and secrets - never commit
+.env
+.env.*
+auth.json
+*.pem
+*.key
