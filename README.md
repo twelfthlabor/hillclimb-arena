@@ -6,6 +6,8 @@ A local harness for testing LLM robustness against adversarial prompting. It run
 evaluation suites against models served by [OpenCode](https://opencode.ai) and measures
 refusal behavior, technique-induced compliance, and canary-secret extraction.
 
+See [`SHOWCASE.md`](SHOWCASE.md) for the generated findings showcase (heatmaps, leaderboards, refusal direction). A fresh clone can regenerate it from the committed data with `python tools/showcase.py` (writes `SHOWCASE.md` and `docs/`); `python tools/assemble_refusal.py` only rebuilds `data/campaign-refusal.json` from a local (gitignored) `runs/` directory during development.
+
 ## Suites
 
 | Suite | What it measures |
@@ -35,6 +37,7 @@ confirmation reruns on fresh secrets) is summarized in [REPORT.md](REPORT.md).
 
 - `tools/arena.py` — shared plumbing (agent spawning, server, cost caps)
 - `tools/techniques_eval.py` — main evaluator (all suites above)
+- `tools/assemble_refusal.py`, `tools/showcase.py` — refusal-wave assembly and the deterministic findings showcase
 - `tools/jbb_eval.py` — JBB-shaped canary-extraction evaluator
 - `tools/forge.py`, `tools/hunt.py`, `tools/persona.py`, `tools/replay.py` — canary-extraction attack tools
 - `behaviors.json`, `personas.json`, `corpus_example.json` — fixtures at repo root
@@ -44,7 +47,8 @@ confirmation reruns on fresh secrets) is summarized in [REPORT.md](REPORT.md).
 ## Requirements
 
 - Python 3 (standard library only)
-- [`opencode`](https://opencode.ai) CLI for live runs
+- [`opencode`](https://opencode.ai) CLI for live runs — the harness drives the opencode 2.x
+  `serve` API and seeds the scratch credentials itself; 1.x is not supported for live calls.
 
 ## Usage
 
